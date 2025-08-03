@@ -1,6 +1,6 @@
 <template>
   <header
-    class="w-full tricolor bg-gray-100 pl-16 pr-16 flex justify-between items-center border-b border-gray-200 shadow-2xl"
+    class="w-full tricolour bg-gray-100 pl-16 pr-16 flex justify-between items-center border-b border-gray-200 shadow-2xl rounded-br-2xl rounded-bl-2xl"
   >
     <HeaderActions />
     <HeaderLogo />
@@ -9,7 +9,7 @@
 </template>
 
 <style scoped>
-.tricolor {
+.tricolour {
   background: linear-gradient(
       to left,
       darkGoldenRod 0,
