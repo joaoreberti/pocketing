@@ -37,12 +37,22 @@
 <script setup lang="ts">
 const articleLink = ref("");
 const articleLinkInput = ref<HTMLInputElement | null>(null);
+const html = ref("");
 
-const handleForm = () => {
+const handleForm = async () => {
   if (isValidForm.value) {
     const link = getUrlFromInput(articleLink.value.trim());
     useMyModalStore().closeModal();
-    // Here you would typically handle the form submission, e.g., send it to an API
+
+    const response = await $fetch("/api/articles", {
+      method: "POST",
+      body: { link },
+    });
+
+    if (response.content) {
+      html.value = response.content;
+    }
+
     console.log("Submitting article link:", link);
   } else {
     console.error("Invalid article link");
