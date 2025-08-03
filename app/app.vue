@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div @click.self="useMyModalStore().closeModal">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
+    <NewArticle />
   </div>
 </template>
 

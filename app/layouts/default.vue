@@ -13,7 +13,6 @@ import Navbar from "../components/header/navbar.vue";
 
 html {
   font-size: 16px;
-  padding: 32px;
 }
 
 body {

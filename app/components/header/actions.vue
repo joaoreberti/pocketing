@@ -3,7 +3,7 @@
     <button class="p-2 cursor-pointer">
       <Squares2X2Icon class="size-6" />
     </button>
-    <button class="p-2 cursor-pointer">
+    <button class="p-2 cursor-pointer" @click="useMyModalStore().toggleModal">
       <DocumentPlusIcon class="size-6" />
     </button>
   </div>

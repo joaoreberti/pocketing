@@ -7,15 +7,9 @@
         {{ article.link }}
       </li>
     </ul> -->
-    <Converter></Converter>
   </div>
 </template>
 
-<script lang="ts" setup>
-import NewArticle from "../components/new-article.vue";
-import { useMyArticlesListStore } from "../stores/articles-list";
-
-const store = useMyArticlesListStore();
-</script>
+<script lang="ts" setup></script>
 
 <style></style>

@@ -1,30 +1,22 @@
+<script setup></script>
+
 <template>
-  <div>
-    <form @submit="handleFormSubmit">
-      <input type="text" v-model="articleLink" />
-      <button type="submit">Add</button>
-    </form>
-    <div>link: {{ articleLink }}</div>
+  <div
+    v-if="useMyModalStore().isModalOpen"
+    class="modal"
+    v-outside="useMyModalStore().closeModal"
+  >
+    <p>Hello from the modal!</p>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { useMyArticlesListStore } from "../stores/articles-list";
-
-const articleLink = ref("");
-
-function handleFormSubmit(e: Event) {
-  e.preventDefault();
-  console.log({ articleLink: articleLink.value });
-  useMyArticlesListStore().addArticle({
-    id: "",
-    title: "",
-    content: "",
-    author: "",
-    publishedDate: new Date(),
-    link: articleLink.value,
-  });
+<style scoped>
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
 }
-</script>
-
-<style></style>
+</style>
