@@ -11,6 +11,7 @@ const envSchema = zod.object({
   DATABASE_URL: zod.string().url(),
   REDIS_HOST: zod.string().min(2).max(100),
   REDIS_PORT: zod.string().min(2).max(100),
+  REDIS_URL: zod.string().url(),
   REDIS_PASSWORD: zod.string().min(2).max(100),
   BETTER_AUTH_SECRET: zod.string().min(2).max(100),
   BETTER_AUTH_URL: zod.string().url(),
@@ -28,7 +29,9 @@ export const env = envSchema.parse({
   REDIS_PORT: process.env.REDIS_PORT,
   REDIS_PASSWORD: process.env.REDIS_PASSWORD,
   DATABASE_URL: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-  REDIS_URL: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
+  REDIS_URL: `redis://${`default`}:${process.env.REDIS_PASSWORD}@${
+    process.env.REDIS_HOST
+  }:${process.env.REDIS_PORT}`,
   BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
   BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
 });

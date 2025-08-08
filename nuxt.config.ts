@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  plugins: ["app/plugins/error-handler.ts"],
 
   modules: ["@pinia/nuxt"],
 });
