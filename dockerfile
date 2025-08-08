@@ -24,4 +24,4 @@ ENV NODE_ENV=production
 
 # Run database migrations and then start the application
 
-CMD ["sh", "-c", "node .output/server/index.mjs"]
+CMD ["sh", "-c", "npx drizzle-kit push && node .output/server/index.mjs"]
