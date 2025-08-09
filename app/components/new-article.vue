@@ -49,8 +49,9 @@ const handleForm = async () => {
       body: { link },
     });
 
-    if (response.content) {
-      html.value = response.content;
+    if (response.id) {
+      console.log("Article created with ID:", response.id);
+      navigateTo(`/${response.id}`);
     }
 
     console.log("Submitting article link:", link);

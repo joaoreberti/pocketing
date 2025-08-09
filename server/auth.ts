@@ -35,5 +35,12 @@ export const auth = betterAuth({
     },
   },
 
-  logger: console,
+  logger: {
+    disabled: false,
+    level: "info",
+    log: (level, message, ...args) => {
+      // Custom logging implementation
+      console.log(`[${level}] ${message}`, ...args);
+    },
+  },
 });
