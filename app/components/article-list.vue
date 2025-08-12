@@ -1,8 +1,20 @@
 <template>
   <div>
-    <ul>
-      <li v-for="article in articles" :key="article.id">
-        <h3>{{ article.title }}</h3>
+    <ul class="grid grid-cols-3 gap-8 p-8">
+      <li
+        class="border-gray-400 border-2 rounded-2xl p-4 shadow-gray-800 shadow-2xs *:shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        v-for="article in articles"
+        :key="article.id"
+      >
+        <img
+          v-if="article.image"
+          :src="article.image"
+          alt="Article Image"
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        />
+        <a :href="article.id">
+          <h3>{{ article.title }}</h3>
+        </a>
       </li>
     </ul>
   </div>

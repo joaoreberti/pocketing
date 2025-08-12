@@ -41,6 +41,10 @@ export const articleTable = pgTable("articles", {
     .references(() => userTable.id, { onDelete: "cascade" }),
   url: text("url").notNull(), // URL of the article
   host: text("host").notNull(), // Hostname of the article
+  metaDescription: varchar(),
+  metaImage: varchar(),
+  favicon: varchar(),
+  image: varchar(),
 });
 
 export const session = pgTable("session", {
